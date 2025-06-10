@@ -3,8 +3,7 @@ import CompanyCard from "../components/common/CompanyCard";
 
 const CompanyProfile: React.FC = () => {
   return (
-    <div>
-      <body>hifdasfasdfa</body>
+    <div className="container mx-auto px-4 py-8">
       <CompanyCard />
     </div>
   );

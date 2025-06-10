@@ -1,4 +1,7 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+import CompanyProfile from "./CompanyProfile";
+import { Link } from "react-router-dom";
 
 const Companies: React.FC = () => {
   return (
@@ -43,6 +46,18 @@ const Companies: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <div className="p-6">
+        <Link
+          to="/companyProfile"
+          className="text-gray-600 hover:text-red px-3 py-2 rounded-md text-lg font-medium transition-colors"
+        >
+          CompanyProfile Page
+        </Link>
+      </div>
+      <Routes>
+        <Route path="/companyProfile" element={<CompanyProfile />} />
+      </Routes>
     </div>
   );
 };

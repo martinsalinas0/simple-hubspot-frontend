@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Companies from "./routes/Companies";
 import Profile from "./routes/Profiles";
 import "./styles/App.css";
-import Buttons from "./routes/Buttons";
+import Buttons from "./routes/ButtonsPage";
 import CompanyProfile from "./routes/CompanyProfile";
 
 // Your other components
