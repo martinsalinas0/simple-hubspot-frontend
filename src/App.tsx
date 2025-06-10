@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Companies from "./pages/Companies";
-import Profile from "./pages/Profiles";
-import "./App.css";
-import Buttons from "./pages/Buttons";
-import CompanyProfile from "./pages/CompanyProfile";
+import Companies from "./routes/Companies";
+import Profile from "./routes/Profiles";
+import "./styles/App.css";
+import Buttons from "./routes/Buttons";
+import CompanyProfile from "./routes/CompanyProfile";
 
 // Your other components
 const Home: React.FC = () => (

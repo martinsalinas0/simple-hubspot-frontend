@@ -1,5 +1,5 @@
 import React from "react";
-import CompanyCard from "../components/CompanyCard";
+import CompanyCard from "../components/common/CompanyCard";
 
 const CompanyProfile: React.FC = () => {
   return (
