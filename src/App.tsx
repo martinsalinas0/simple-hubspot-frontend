@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Companies from "./pages/Companies";
+import Profile from "./pages/Profiles";
+import "./App.css";
+import Buttons from "./pages/Buttons";
+import CompanyProfile from "./pages/CompanyProfile";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Your other components
+const Home: React.FC = () => (
+  <div className="container mx-auto px-4 py-8">
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">Home</h1>
+    <p className="text-gray-600">Welcome to your application!</p>
+    <p>Hi how are you? </p>
+    <button></button>
+  </div>
+);
 
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        {/* Navigation */}
+        <nav className="bg-white shadow-sm border-b border-gray-200">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-between items-center py-4">
+              <div className="flex space-x-8">
+                <Link
+                  to="/"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/companies"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Companies
+                </Link>
+                <Link
+                  to="/profile"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Profile
+                </Link>
+                <button className="bg-green-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded">
+                  Create a company
+                </button>
+                <Link to="/buttons">Buttons</Link>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-export default App
+        {/* Routes */}
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/companies" element={<Companies />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/buttons" element={<Buttons />} />
+            <Route path="/companyProfile" element={<CompanyProfile />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
