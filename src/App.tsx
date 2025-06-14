@@ -47,6 +47,7 @@ const App: React.FC = () => {
                   Create a company
                 </button>
                 <Link to="/buttons">Buttons</Link>
+                <Link to="/companyProfile">SINGLE COMPANY</Link>
               </div>
             </div>
           </div>
