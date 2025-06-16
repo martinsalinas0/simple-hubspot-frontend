@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonExamples from "../components/ui/ButtonExampls";
+import ButtonExamples from "../components/ButtonExampls";
 
 const Buttons: React.FC = () => {
   return <ButtonExamples />;
