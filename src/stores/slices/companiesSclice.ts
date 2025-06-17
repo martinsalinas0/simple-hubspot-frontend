@@ -42,7 +42,8 @@ export const getCompanies = createAsyncThunk(
 export const addCompany = createAsyncThunk(
   "companies/addCompany",
   async (companyData: Omit<Company, "_id">) => {
-    const response = await axios.post(`${API_URL}/company/add`, companyData);
+    const response = await axios.post(`${API_URL}/company/new`, companyData);
+
     return response.data.company;
   }
 );
@@ -111,7 +112,7 @@ const companiesSlice = createSlice({
       })
       .addCase(addCompany.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.companies.push(action.payload); //push into the state
+        state.companies.push(action.payload); //push into the state of oompanies
       })
       .addCase(addCompany.rejected, (state, action) => {
         state.isLoading = false;
