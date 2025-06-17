@@ -16,50 +16,50 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
   logoURL,
 }) => {
   return (
-    <section
-      aria-labelledby="company-name"
-      className="p-6 max-w-lg mx-auto bg-white rounded shadow-md"
-    >
-      <h1 id="company-name" className="text-2xl font-bold mb-4">
-        {name}
-      </h1>
+    <div className="w-full px-4 pt-0">
+      <h1 className="text-3xl font-bold text-gray-800 mb-4">{name}</h1>
 
-      {logoURL ? (
-        <img
-          src={logoURL}
-          alt={`${name} logo`}
-          className="mb-4 w-full max-h-48 object-contain"
-          onError={(e) => {
-            e.currentTarget.src = "/placeholder.png"; // fallback image path
-          }}
-        />
-      ) : (
-        <div className="mb-4 w-full max-h-48 flex items-center justify-center bg-gray-200 text-gray-500">
-          No logo available
-        </div>
-      )}
+      <div className="absolute top-13 right-20 w-50 h-50">
+        {logoURL ? (
+          <img
+            src={logoURL}
+            alt={`${name} logo`}
+            className="mb-4 w-full max-h-60 object-contain content-end"
+            onError={(e) => {
+              e.currentTarget.src = "/placeholder.png";
+            }}
+          />
+        ) : (
+          <div className="mb-4 w-full max-h-60 flex items-center justify-center bg-gray-200 text-gray-500 text-lg py-10">
+            No logo available
+          </div>
+        )}
+      </div>
 
-      <p className="mb-1">
-        <strong>Location:</strong> {location}
+      <p className="mb-2 text-lg">
+        <strong className="text-gray-700">Location:</strong> {location}
       </p>
-      <hr className="my-2" />
-      <p className="mb-1">
-        <strong>ID:</strong> {_id}
-      </p>
-      <hr className="my-2" />
-      <p>
-        <strong>Status:</strong> {status}
-      </p>
-      <button className="text-blue-600  flex-1 hover:text-gray-600">
-        Edit
-      </button>
+      <hr className="my-3" />
 
-      <button className="text-red-700  flex-1 font-bold  hover:text-gray-600">
-        {" "}
-        Delete
-        {/* add confirmation for deletion */}
-      </button>
-    </section>
+      <p className="mb-2 text-lg">
+        <strong className="text-gray-700">ID:</strong> {_id}
+      </p>
+      <hr className="my-3" />
+
+      <p className="mb-4 text-lg">
+        <strong className="text-gray-700">Status:</strong> {status}
+      </p>
+
+      <div className="flex gap-4">
+        <button className="text-blue-600 font-medium hover:text-blue-800">
+          Edit
+        </button>
+
+        <button className="text-red-700 font-bold hover:text-red-500">
+          Delete
+        </button>
+      </div>
+    </div>
   );
 };
 

@@ -29,7 +29,7 @@ const CompanyDetailsPage: React.FC = () => {
   if (!company) return <p className="text-center mt-10">No company found.</p>;
 
   return (
-    <div className="flex justify-center items-center min-h-screen p-6 bg-gray-100">
+    <div className="flex  min-h-screen p-6 bg-gray-100">
       <CompanyDetailsComp
         name={company.name}
         location={company.location}
