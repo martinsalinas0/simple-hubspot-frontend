@@ -10,7 +10,7 @@ interface CompanyProps {
   logoURL?: string;
 }
 
-const CompanyCard: React.FC<CompanyProps> = ({
+const CompanyCardForList: React.FC<CompanyProps> = ({
   name,
   location,
   _id,
@@ -58,23 +58,9 @@ const CompanyCard: React.FC<CompanyProps> = ({
           </span>
 
           <div className="flex  gap-4">
-            <div></div>
-            <div>
-              {" "}
-              <button className="text-blue-600  flex-1 hover:text-gray-600">
-                Edit
-              </button>
-            </div>
-            <div>
-              <button className="text-red-700  flex-1 font-bold  hover:text-gray-600">
-                {" "}
-                Delete
-                {/* add confirmation for deletion */}
-              </button>
-            </div>
             <div>
               <button className="font-bold   flex-1 hover:text-gray-600">
-                Details
+                View
               </button>
               <button className="text-gray-500  flex-1 hover:text-gray-800  ml-2">
                 <SlOptionsVertical />
@@ -87,4 +73,4 @@ const CompanyCard: React.FC<CompanyProps> = ({
   );
 };
 
-export default CompanyCard;
+export default CompanyCardForList;
