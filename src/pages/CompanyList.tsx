@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "../stores/configureStore.ts";
 import { fetchCompanies } from "../stores/slices/companiesSclice.ts";
 import CompanyCard from "../components/CompanyCard.tsx";
+import CompanyCardForList from "../components/CompanyCardForList.tsx";
 
 const CompaniesList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -64,7 +65,7 @@ const CompaniesList: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {companies.map((company) => (
-            <CompanyCard
+            <CompanyCardForList
               key={company._id}
               name={company.name}
               location={company.location}

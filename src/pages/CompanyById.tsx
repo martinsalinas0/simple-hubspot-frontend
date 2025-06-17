@@ -1,4 +1,4 @@
-import CompanyCard from "../components/CompanyCard";
+import CompanyCard from "../components/CompanyCard.tsx";
 import { fetchCompanies } from "../stores/slices/companiesSclice.ts";
 
 const CompByID: React.FC = () => {

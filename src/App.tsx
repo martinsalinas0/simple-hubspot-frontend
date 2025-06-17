@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/App.css";
-import Buttons from "./routes-pages/ButtonsPage";
-import CompanyProfile from "./routes-pages/SingleCompany";
-import SingleCompany from "./routes-pages/SingleCompany";
-import CompaniesList from "./routes-pages/CompanyList";
-import AddCompPage from "./routes-pages/AddCompPage";
+import Buttons from "./pages/ButtonsPage";
+import CompanyProfile from "./pages/SingleCompany";
+import SingleCompany from "./pages/SingleCompany";
+import CompaniesList from "./pages/CompanyList";
+import AddCompPage from "./pages/AddCompPage";
 import Navbar from "./components/NavBar";
-import HomePage from "./routes-pages/HomePage";
+import HomePage from "./pages/HomePage";
 
 const App: React.FC = () => {
   return (
