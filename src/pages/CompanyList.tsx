@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "../stores/configureStore.ts";
 import { fetchCompanies } from "../stores/slices/companiesSclice.ts";
-import CompanyCard from "../components/CompanyCard.tsx";
 import CompanyCardForList from "../components/CompanyCardForList.tsx";
 
 const CompaniesList: React.FC = () => {
