@@ -8,6 +8,7 @@ import CompaniesList from "./pages/CompanyList";
 import AddCompPage from "./pages/AddCompPage";
 import Navbar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
+import CompanyDetails from "./pages/CompanyDetailsPage";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <Route path="/companyProfile" element={<CompanyProfile />} />
             <Route path="/companies" element={<CompaniesList />} />
             <Route path="/add-company" element={<AddCompPage />} />
+            <Route path="/company/:id" element={<CompanyDetails />} />
           </Routes>
         </main>
       </div>
