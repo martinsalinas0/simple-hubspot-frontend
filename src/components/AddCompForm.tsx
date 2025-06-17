@@ -1,6 +1,30 @@
+import axios from "axios";
 import type React from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const AddCompForm: React.FC = () => {
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [logoURL, setLogoURL] = useState("");
+  const dispatch = useDispatch(); 
+  const handleAddCompany = (event: unknown): void => {
+    event.preventDefault();
+  };
+
+  const addCompany = async () => {
+    const addCompanyToList = await axios.get(
+      "http://localhost:8000/api/company/new"
+    );
+
+    useEffect((), [dispatch])
+    
+    addCompanyToList();
+  };
+
+
+  
+
   return (
     <div className="flex justify-center items-center min-h-100 mt-9 ">
       <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
