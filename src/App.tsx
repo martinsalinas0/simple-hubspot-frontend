@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/App.css";
 import Buttons from "./pages/ButtonsPage";
-import CompanyProfile from "./pages/SingleCompany";
-import SingleCompany from "./pages/SingleCompany";
+
 import CompaniesList from "./pages/CompanyList";
 import AddCompPage from "./pages/AddCompPage";
 import Navbar from "./components/NavBar";
@@ -21,9 +20,7 @@ const App: React.FC = () => {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/single" element={<SingleCompany />} />
             <Route path="/buttons" element={<Buttons />} />
-            <Route path="/companyProfile" element={<CompanyProfile />} />
             <Route path="/companies" element={<CompaniesList />} />
             <Route path="/add-company" element={<AddCompPage />} />
             <Route path="/company/:id" element={<CompanyDetails />} />
