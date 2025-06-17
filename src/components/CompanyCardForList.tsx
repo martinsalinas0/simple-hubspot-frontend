@@ -1,5 +1,6 @@
 import { FaMapLocationDot } from "react-icons/fa6";
 import { SlOptionsVertical } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 //creates the company props to use
 interface CompanyProps {
@@ -17,7 +18,6 @@ const CompanyCardForList: React.FC<CompanyProps> = ({
   status,
   logoURL,
 }) => {
-  //const [currentCompnany, setCurrentCompany] = useState('');
 
   return (
     <div className="rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow p-6 relative">
@@ -59,12 +59,13 @@ const CompanyCardForList: React.FC<CompanyProps> = ({
 
           <div className="flex  gap-4">
             <div>
-              <button className="font-bold   flex-1 hover:text-gray-600">
-                View
-              </button>
-              <button className="text-gray-500  flex-1 hover:text-gray-800  ml-2">
+              <Link
+                to={`/company/${_id}`}
+                className="font-bold   flex-1 hover:text-gray-600"
+              >
+                <p>details</p>
                 <SlOptionsVertical />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
