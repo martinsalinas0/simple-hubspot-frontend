@@ -36,6 +36,8 @@ const CompanyDetailsPage: React.FC = () => {
         _id={company._id}
         status={company.status}
         logoURL={company.logoURL}
+        createdAt={company.createdAt}
+        suf="THIS IS JUST SHOWING ME REMINDING ME HOW COMPS AND PROPS WORK"
       />
     </div>
   );

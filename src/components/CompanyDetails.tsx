@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface CompanyProps {
   name: string;
@@ -6,6 +7,8 @@ interface CompanyProps {
   _id: string;
   status: string;
   logoURL?: string;
+  createdAt?: string;
+  suf?: string;
 }
 
 const CompanyDetailsComp: React.FC<CompanyProps> = ({
@@ -14,15 +17,34 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
   _id,
   status,
   logoURL,
+  createdAt,
+  suf,
 }) => {
-  const [newName, setNewName] = useState(name);
-  const [newLocation, setNewLocation] = useState(location);
-  const [newLogoURL, setNewLogoURL] = useState(logoURL);
+  const navigate = useNavigate();
 
+  const handleEditClick = () => {
+    navigate(`/company/edit/${_id}`, {
+      state: { name, location, status, logoURL, createdAt },
+    });
+  };
 
-  const handleEdit = () => { 
-    
-  }
+  console.log("createdAt:fff", createdAt);
+  console.log(name);
+
+  const deleteCompany = async () => {
+    const valid = window.confirm("Are you sure you want to delete? ");
+    if (!valid) return;
+
+    try {
+      const response = await axios.delete(
+        `http://localhost:8000/api/company/delete/${_id}`
+      );
+      navigate(`/companies`);
+    } catch (err) {
+      console.error("failed to delete", err);
+      alert("failed to delete");
+    }
+  };
 
   return (
     <div className="w-full px-4 pt-0">
@@ -58,15 +80,29 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
       <p className="mb-4 text-lg">
         <strong className="text-gray-700">Status:</strong> {status}
       </p>
+      <p>Point of Contact:</p>
+      <p>Phone Number: </p>
+      <p>Email:</p>
+      <p>
+        <strong>Created At:</strong>{" "}
+        {createdAt ? new Date(createdAt).toLocaleString() : "N/A"}
+      </p>
 
       <div className="flex gap-4">
-        <button className="text-blue-600 font-medium hover:text-blue-800">
+        <button
+          className="text-blue-600 font-medium hover:text-blue-800"
+          onClick={handleEditClick}
+        >
           Edit
         </button>
 
-        <button className="text-red-700 font-bold hover:text-red-500">
+        <button
+          className="text-red-700 font-bold hover:text-red-500"
+          onClick={deleteCompany}
+        >
           Delete
         </button>
+        <p>{suf}</p>
       </div>
     </div>
   );
