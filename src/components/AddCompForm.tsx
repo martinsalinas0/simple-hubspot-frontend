@@ -4,7 +4,6 @@ import { addCompany } from "../stores/slices/companiesSclice";
 import type { AppDispatch, RootState } from "../stores/configureStore";
 
 const AddCompForm: React.FC = () => {
-  
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [logoURL, setLogoURL] = useState("");
@@ -57,6 +56,7 @@ const AddCompForm: React.FC = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="name"
             />
           </div>
 
@@ -68,6 +68,7 @@ const AddCompForm: React.FC = () => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="City and state"
             />
           </div>
 
@@ -79,7 +80,9 @@ const AddCompForm: React.FC = () => {
               value={logoURL}
               onChange={(e) => setLogoURL(e.target.value)}
               className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="if no url, leave blank"
             />
+            <p className="text-red-600">*all fields required</p>
           </div>
 
           <input
