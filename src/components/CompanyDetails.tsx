@@ -39,6 +39,7 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
       const response = await axios.delete(
         `http://localhost:8000/api/company/delete/${_id}`
       );
+      console.log(response);
       navigate(`/companies`);
     } catch (err) {
       console.error("failed to delete", err);
