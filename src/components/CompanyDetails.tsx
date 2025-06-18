@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface CompanyProps {
   name: string;
@@ -15,6 +15,15 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
   status,
   logoURL,
 }) => {
+  const [newName, setNewName] = useState(name);
+  const [newLocation, setNewLocation] = useState(location);
+  const [newLogoURL, setNewLogoURL] = useState(logoURL);
+
+
+  const handleEdit = () => { 
+    
+  }
+
   return (
     <div className="w-full px-4 pt-0">
       <h1 className="text-3xl font-bold text-gray-800 mb-4">{name}</h1>
