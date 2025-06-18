@@ -8,6 +8,7 @@ interface Company {
   location: string;
   logoURL: string;
   status: string;
+  createdAt?: string;
 }
 
 //this creaates  the compaanystaate
@@ -71,6 +72,11 @@ export const getCompById = createAsyncThunk(
   "companies/getCompById",
   async (companyId: string) => {
     const response = await axios.get(`${API_URL}/company/${companyId}`);
+    // console.log("get comp by id");
+    // console.log(response.data.company);
+    const data = response.data.company;
+    console.log("-------");
+    console.log(data.createdAt);
     return response.data.company;
   }
 );
@@ -181,5 +187,4 @@ const companiesSlice = createSlice({
 export const { clearCurrentCompany, clearError } = companiesSlice.actions;
 export default companiesSlice.reducer;
 
-// Backward compatibility - keep fetchCompanies as an alias
 export const fetchCompanies = getCompanies;
