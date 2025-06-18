@@ -71,6 +71,7 @@ const CompaniesList: React.FC = () => {
               _id={company._id}
               status={company.status}
               logoURL={company.logoURL}
+              createdAt={company.createdAt}
             />
           ))}
           <button>HERE</button>

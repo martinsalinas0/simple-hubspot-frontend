@@ -9,6 +9,7 @@ interface CompanyProps {
   _id: string;
   status: string;
   logoURL?: string;
+  createdAt?: string;
 }
 
 const CompanyCardForList: React.FC<CompanyProps> = ({
@@ -17,8 +18,8 @@ const CompanyCardForList: React.FC<CompanyProps> = ({
   _id,
   status,
   logoURL,
+  createdAt,
 }) => {
-
   return (
     <div className="rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow p-6 relative">
       <div className="flex justify-between items-start mb-4">
@@ -47,6 +48,7 @@ const CompanyCardForList: React.FC<CompanyProps> = ({
           <FaMapLocationDot className="mr-3" />
           {location}
         </p>
+        {/* <span>CREATed AT{createdAt}</span> */}
       </div>
 
       <div className="border-t pt-4">
