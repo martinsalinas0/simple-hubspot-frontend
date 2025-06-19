@@ -9,6 +9,7 @@ import Navbar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import CompanyDetails from "./pages/CompanyDetailsPage";
 import EditCompany from "./pages/EditCompany";
+import AllCompaniesDashboard from "./pages/allCompaniesDashboard";
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
             <Route path="/add-company" element={<AddCompPage />} />
             <Route path="/company/:id" element={<CompanyDetails />} />
             <Route path="/company/edit/:id" element={<EditCompany />} />
+            <Route path="/testcomps" element={<AllCompaniesDashboard />} />
           </Routes>
         </main>
       </div>
