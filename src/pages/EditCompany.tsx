@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import type { AppDispatch } from "../stores/configureStore";
-import { getCompById } from "../stores/slices/companiesSclice";
+import { getCompById } from "../stores/slices/companiesListSclice";
 
 const EditCompany = () => {
   const { id } = useParams();

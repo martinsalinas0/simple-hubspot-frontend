@@ -10,7 +10,7 @@ interface Company {
   status: string;
   createdAt?: string;
 }
-
+ 
 //this creaates  the compaanystaate
 interface CompaniesState {
   companies: Company[];

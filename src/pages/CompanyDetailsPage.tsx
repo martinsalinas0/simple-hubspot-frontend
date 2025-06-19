@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import type { AppDispatch, RootState } from "../stores/configureStore";
-import { getCompById } from "../stores/slices/companiesSclice";
+import { getCompById } from "../stores/slices/companiesListSclice";
 import CompanyDetailsComp from "../components/CompanyDetails";
 
 const CompanyDetailsPage: React.FC = () => {

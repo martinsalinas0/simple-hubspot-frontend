@@ -1,5 +1,5 @@
 import CompanyCard from "../components/CompanyCard.tsx";
-import { fetchCompanies } from "../stores/slices/companiesSclice.ts";
+import { fetchCompanies } from "../stores/slices/companiesListSclice.ts";
 
 const CompByID: React.FC = () => {
   const { companies, isLoading, error } = useSelector(
