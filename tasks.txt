@@ -1,1 +1,10 @@
-company card details and function
+      <div className="flex justify-center gap-4 text-center mt-6">
+        <div className="border border-black border-dashed w-56 ">
+          <ul>
+            <li draggable="true">list</li>
+            <li>list</li>
+          </ul>
+          left
+        </div>
+        <div className="border border-black border-dashed w-56">right</div>
+      </div>
