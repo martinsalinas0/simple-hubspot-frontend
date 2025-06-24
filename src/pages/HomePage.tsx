@@ -2,19 +2,18 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Home</h1>
-      <p className="text-gray-600 text-center text-7xl mb-9 font-chicle">
+    <div className="container mx-auto px-4 bg-neutral-200 py-8">
+      <p className="text-gray-600 text-center text-7xl mb-9 bg-orange-200 rounded-2xl p-2 font-chicle">
         Simplified Hubspot CRM!
       </p>
       <p className="text-center text-blue-600 text-xl">
         Manage Customers with ease!
       </p>
       <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-center min-h-96 bg-gray-100">
-          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <div className="flex items-center border-8 rounded-lg border-orange-300 justify-center min-h-96 bg-gray-100">
+          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white border-4 border-dotted border-red-300">
             <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-6 text-center">
+              <div className="font-bold text-xl mb-6 text-center border-dashed border-2 rounded-md">
                 Admin View
               </div>
               <p className="text-gray-700 text-base">

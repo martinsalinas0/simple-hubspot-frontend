@@ -15,7 +15,7 @@ import DragAndDrop from "./pages/DragAndDrop";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-neutral-200">
         {/* Nav bar */}
         <Navbar />
 
