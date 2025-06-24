@@ -51,18 +51,18 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
     <div className="w-full px-4 pt-0">
       <h1 className="text-3xl font-bold text-gray-800 mb-4">{name}</h1>
 
-      <div className="absolute top-13 right-20 w-50 h-50">
+      <div className="absolute top-13 right-20 w-60 h-60">
         {logoURL ? (
           <img
             src={logoURL}
             alt={`${name} logo`}
-            className="mb-4 w-full max-h-60 object-contain content-end"
+            className="mb-4 w-full h-full object-contain"
             onError={(e) => {
               e.currentTarget.src = "/placeholder.png";
             }}
           />
         ) : (
-          <div className="mb-4 w-full max-h-60 flex items-center justify-center bg-gray-200 text-gray-500 text-lg py-10">
+          <div className="mb-4 w-full h-full flex items-center justify-center bg-gray-200 text-gray-500 text-lg py-10">
             No logo available
           </div>
         )}
@@ -81,11 +81,11 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
       <p className="mb-4 text-lg">
         <strong className="text-gray-700">Status:</strong> {status}
       </p>
-      <p>Point of Contact:</p>
-      <p>Phone Number: </p>
-      <p>Email:</p>
+      <p>Point of Contact: fff</p>
+      <p>Phone Number: fff</p>
+      <p>Email: ff</p>
       <p>
-        <strong>Created At:</strong>{" "}
+        Cusomter Since:{" "}
         {createdAt ? new Date(createdAt).toLocaleString() : "N/A"}
       </p>
 
