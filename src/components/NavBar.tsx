@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => (
   <div>
-    <nav className="bg-white shadow px-6 py-4">
+    <nav className="bg-orange-400 bg-opacity-25 shadow px-6 py-4 ">
       <div className="flex justify-between items-center">
-        {/* Left side links */}
         <div className="flex space-x-6">
           <Link
             to="/"
-            className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Home
           </Link>

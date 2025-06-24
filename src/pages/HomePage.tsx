@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Home</h1>
-      <p className="text-gray-600 text-center text-7xl mb-9">
+      <p className="text-gray-600 text-center text-7xl mb-9 font-chicle">
         Simplified Hubspot CRM!
       </p>
       <p className="text-center text-blue-600 text-xl">
