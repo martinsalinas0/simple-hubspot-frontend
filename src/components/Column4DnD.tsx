@@ -1,14 +1,13 @@
 import { useDroppable } from "@dnd-kit/core";
-import { TaskCard } from "./TaskCard";
-
-import type { Column as ColumnType, Task } from "../assets/types";
+import type { Company4DnD, CompanyColumn } from "../types/Company";
+import { CompanyCard4DnD } from "./CompanyCard4DnD";
 
 type ColumnProps = {
-  column: ColumnType;
-  tasks: Task[];
+  column: CompanyColumn;
+  companies: Company4DnD[];
 };
 
-export function Column({ column, tasks }: ColumnProps) {
+export function Column4DnD({ column, companies }: ColumnProps) {
   const { setNodeRef } = useDroppable({
     id: column.id,
   });
@@ -17,9 +16,9 @@ export function Column({ column, tasks }: ColumnProps) {
     <div className="flex w-80 flex-col rounded-lg bg-neutral-800 p-4">
       <h2 className="mb-4 font-semibold text-neutral-100">{column.title}</h2>
       <div ref={setNodeRef} className="flex flex-1 flex-col gap-4">
-        {tasks.map((task) => {
-          return <TaskCard key={task.id} task={task} />;
-        })}
+        {companies.map((company) => (
+          <CompanyCard4DnD key={company.id} company={company} />
+        ))}
       </div>
     </div>
   );

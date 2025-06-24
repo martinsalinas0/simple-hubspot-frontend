@@ -1,78 +1,99 @@
 import { useState } from "react";
-import type { Task, Column as ColumnType } from "../assets/types.ts";
-import { Column } from "../components/Column";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
+import { Column4DnD } from "../components/Column4DnD.tsx";
+import type {
+  Company4DnD,
+  CompanyColumn,
+  CompanyStage,
+} from "../types/Company.ts";
 
-const COLUMNS: ColumnType[] = [
-  { id: "TODO", title: "To Do" },
-  { id: "IN_PROGRESS", title: "In Progress" },
-  { id: "DONE", title: "Done" },
+const COLUMNS: CompanyColumn[] = [
+  { id: "INITIATED", title: "Initiated" },
+  { id: "QUALIFIED", title: "Qualified" },
+  { id: "CONTRACT_SENT", title: "Contract Sent" },
+  { id: "NEGOTIATING", title: "Negotiating" },
+  { id: "CLOSED_WON", title: "Closed Won" },
+  { id: "CLOSED_LOST", title: "Closed Lost" },
 ];
 
-const INITIAL_TASKS: Task[] = [
+const INITIAL_COMPANIES: Company4DnD[] = [
   {
-    id: "1",
-    title: "Research Project",
-    description: "Gather requirements and create initial documentation",
-    status: "TODO",
+    id: "1562",
+    compName: "Company 1",
+    location: "Austin, Texas",
+    status: "INITIATED",
   },
   {
-    id: "2",
-    title: "Design System",
-    description: "Create component library and design tokens",
-    status: "TODO",
+    id: "262562",
+    compName: "Company 2",
+    location: "Dallas, Texas",
+    status: "QUALIFIED",
   },
   {
-    id: "3",
-    title: "API Integration",
-    description: "Implement REST API endpoints",
-    status: "IN_PROGRESS",
+    id: "3264562",
+    compName: "Company 3",
+    location: "Miami, Florida",
+    status: "CONTRACT_SENT",
   },
   {
-    id: "4",
-    title: "Testing",
-    description: "Write unit tests for core functionality",
-    status: "DONE",
+    id: "46256",
+    compName: "Company 4",
+    location: "New York City",
+    status: "NEGOTIATING",
+  },
+  {
+    id: "52546",
+    compName: "Company 5",
+    location: "Texas",
+    status: "CLOSED_WON",
+  },
+  {
+    id: "6526",
+    compName: "Company 6",
+    location: "LONDON",
+    status: "CLOSED_LOST",
+  },
+  {
+    id: "65426gafsd26",
+    compName: "Company 7",
+    location: "GERMANY",
+    status: "CLOSED_WON",
   },
 ];
 
 export default function DragAndDrop() {
-  const [tasks, setTasks] = useState<Task[]>(INITIAL_TASKS);
+  const [companies, setCompanies] = useState<Company4DnD[]>(INITIAL_COMPANIES);
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
-
     if (!over) return;
 
-    const taskId = active.id as string;
-    const newStatus = over.id as Task["status"];
+    const companyId = active.id as string;
+    const newStatus = over.id as CompanyStage;
 
-    setTasks(() =>
-      tasks.map((task) =>
-        task.id === taskId
-          ? {
-              ...task,
-              status: newStatus,
-            }
-          : task
+    setCompanies((prevCompanies) =>
+      prevCompanies.map((company) =>
+        company.id === companyId ? { ...company, status: newStatus } : company
       )
     );
   }
 
   return (
-    <div className="p-4">
-      <div className="flex gap-8">
-        <DndContext onDragEnd={handleDragEnd}>
-          {COLUMNS.map((column) => {
-            return (
-              <Column
+    <div className="p-9">
+      <div className=" p-3 border-4 border-neutral-950 border-opacity-25 rounded-md bg-neutral-900 bg-opacity-25 border-spacing-56 border-">
+        <div className="flex gap-8">
+          <DndContext onDragEnd={handleDragEnd}>
+            {COLUMNS.map((column) => (
+              <Column4DnD
                 key={column.id}
                 column={column}
-                tasks={tasks.filter((task) => task.status === column.id)}
+                companies={companies.filter(
+                  (company) => company.status === column.id
+                )}
               />
-            );
-          })}
-        </DndContext>
+            ))}
+          </DndContext>
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 import { useDraggable } from "@dnd-kit/core";
-import type { Task } from "../assets/types";
+import type { Company4DnD } from "../types/Company";
 
-type TaskCardProps = {
-  task: Task;
+type CompCardProps = {
+  company: Company4DnD;
 };
 
-export function TaskCard({ task }: TaskCardProps) {
+export function CompanyCard4DnD({ company }: CompCardProps) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: task.id,
+    id: company.id,
   });
 
   const style = transform
@@ -24,8 +24,8 @@ export function TaskCard({ task }: TaskCardProps) {
       className="cursor-grab rounded-lg bg-neutral-700 p-4 shadow-sm hover:shadow-md"
       style={style}
     >
-      <h3 className="font-medium text-neutral-100">{task.title}</h3>
-      <p className="mt-2 text-sm text-neutral-400">{task.description}</p>
+      <h3 className="font-medium text-neutral-100">{company.compName}</h3>
+      <p className="mt-2 text-sm text-neutral-400">{company.location}</p>
     </div>
   );
 }
