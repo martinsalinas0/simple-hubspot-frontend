@@ -38,6 +38,7 @@ const Navbar: React.FC = () => (
             Buttons
           </Link>
           <Link to={"/testcomps"}>TEST </Link>
+          <Link to={"/dnd"}>DND</Link>
         </div>
 
         {/* Right side user info */}

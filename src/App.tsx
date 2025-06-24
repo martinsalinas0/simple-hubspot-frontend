@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import CompanyDetails from "./pages/CompanyDetailsPage";
 import EditCompany from "./pages/EditCompany";
 import AllCompaniesDashboard from "./pages/allCompaniesDashboard";
+import DragAndDrop from "./pages/DragAndDrop";
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
             <Route path="/company/:id" element={<CompanyDetails />} />
             <Route path="/company/edit/:id" element={<EditCompany />} />
             <Route path="/testcomps" element={<AllCompaniesDashboard />} />
+            <Route path="dnd" element={<DragAndDrop />} />
           </Routes>
         </main>
       </div>
