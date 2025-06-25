@@ -1,13 +1,13 @@
 import { useDroppable } from "@dnd-kit/core";
-import type { Company4DnD, CompanyColumn } from "../types/types";
-import { CompanyCard4DnD } from "./CompanyCard4DnD";
+import type { Company, CompanyColumn } from "../types/types";
+import { TestCompanyCard4DnD } from "./TestCompanyCard4DnD";
 
 type ColumnProps = {
   column: CompanyColumn;
-  companies: Company4DnD[];
+  companies: Company[];
 };
 
-export function Column4DnD({ column, companies }: ColumnProps) {
+export function TestColumn4DnD({ column, companies }: ColumnProps) {
   const { setNodeRef } = useDroppable({
     id: column.id,
   });
@@ -19,7 +19,7 @@ export function Column4DnD({ column, companies }: ColumnProps) {
       </h2>
       <div ref={setNodeRef} className="flex flex-1 flex-col gap-4">
         {companies.map((company) => (
-          <CompanyCard4DnD key={company.id} company={company} />
+          <TestCompanyCard4DnD key={company._id} company={company} />
         ))}
       </div>
     </div>

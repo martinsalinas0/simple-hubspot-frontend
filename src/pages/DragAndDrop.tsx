@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 import { Column4DnD } from "../components/Column4DnD.tsx";
-import type {
-  Company4DnD,
-  CompanyColumn,
-  CompanyStage,
-} from "../types/Company.ts";
+import type { Company4DnD, CompanyColumn, CompanyStage } from "../types/types";
 
 const COLUMNS: CompanyColumn[] = [
   { id: "INITIATED", title: "Initiated" },

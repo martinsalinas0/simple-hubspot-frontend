@@ -1,5 +1,6 @@
-import CompanyCard from "../components/CompanyCard.tsx";
-import { fetchCompanies } from "../stores/slices/companiesListSclice.ts";
+import CompanyCard from "../components/CompanyCard";
+import CompanyDetailsComp from "../components/CompanyDetails.tsx";
+import { fetchCompanies } from "../stores/slices/companySlice.ts";
 
 const CompByID: React.FC = () => {
   const { companies, isLoading, error } = useSelector(
@@ -8,7 +9,7 @@ const CompByID: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 overflow-visible">
-      <CompanyCard
+      <CompanyDetailsComp
         name={company.name}
         location="Austin, Texas"
         _id="35215325mjlk31j5hlk"

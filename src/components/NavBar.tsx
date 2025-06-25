@@ -43,7 +43,7 @@ const Navbar: React.FC = () => (
             Buttons
           </Link>
           <Link
-            to={"/testcomps"}
+            to={"/test"}
             className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Test Page{" "}
