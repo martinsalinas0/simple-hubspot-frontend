@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
-import { Column4DnD } from "../components/Column4DnD.tsx";
-import type { Company4DnD, CompanyColumn, CompanyStage } from "../types/types";
+import { PracticeColumn4DnD } from "../componentsTestDnD/PracticeColumn4DnD.tsx";
+import type {
+  Company4DnD,
+  CompanyColumn,
+  CompanyStage,
+} from "../types/types.ts";
 
 const COLUMNS: CompanyColumn[] = [
   { id: "initiated", title: "Initiated" },
@@ -57,7 +61,7 @@ const INITIAL_COMPANIES: Company4DnD[] = [
   },
 ];
 
-export default function DragAndDrop() {
+export default function PracticeDnD() {
   const [companies, setCompanies] = useState<Company4DnD[]>(INITIAL_COMPANIES);
 
   function handleDragEnd(event: DragEndEvent) {
@@ -80,7 +84,7 @@ export default function DragAndDrop() {
         <div className="flex gap-8">
           <DndContext onDragEnd={handleDragEnd}>
             {COLUMNS.map((column) => (
-              <Column4DnD
+              <PracticeColumn4DnD
                 key={column.id}
                 column={column}
                 companies={companies.filter(

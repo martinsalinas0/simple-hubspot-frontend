@@ -7,7 +7,7 @@ import { fetchCompanies, updateComp } from "../stores/slices/companySlice";
 import { useSelector } from "react-redux";
 import type { RootState } from "../stores/configureStore";
 
-import { TestColumn4DnD } from "../componentsTestDnD/TestColumn4DnD";
+import { Column4DnD } from "../components/ColumnForDragAndDrop";
 
 const COLUMNS: CompanyColumn[] = [
   { id: "initiated", title: "Initiated" },
@@ -18,7 +18,7 @@ const COLUMNS: CompanyColumn[] = [
   { id: "closed lost", title: "Closed Lost" },
 ];
 
-export default function DnDTest() {
+export default function DashboardDragAndDrop() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function DnDTest() {
         <div className="flex gap-8">
           <DndContext onDragEnd={handleDragEnd}>
             {COLUMNS.map((column) => (
-              <TestColumn4DnD
+              <Column4DnD
                 key={column.id}
                 column={column}
                 companies={companies.filter(

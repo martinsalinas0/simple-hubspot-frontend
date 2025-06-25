@@ -9,9 +9,11 @@ import HomePage from "./pages/HomePage";
 import CompanyDetails from "./pages/CompanyDetailsPage";
 import EditCompany from "./pages/EditCompany";
 
-import DragAndDrop from "./pages/DragAndDrop";
-import DnDTest from "./pages/DndTest";
+
+
 import OverallData from "./pages/OverallData";
+import DashboardDragAndDrop from "./pages/DashboardDragAndDrop";
+import PracticeDnD from "./pages/PracticeDragAndDrop";
 
 const App: React.FC = () => {
   return (
@@ -29,8 +31,8 @@ const App: React.FC = () => {
             <Route path="/add-company" element={<AddCompPage />} />
             <Route path="/company/:id" element={<CompanyDetails />} />
             <Route path="/company/edit/:id" element={<EditCompany />} />
-            <Route path="/test" element={<DnDTest />} />
-            <Route path="/dnd" element={<DragAndDrop />} />
+            <Route path="/test" element={<PracticeDnD />} />
+            <Route path="/dashboard" element={<DashboardDragAndDrop />} />
             <Route path="/data" element={<OverallData />} />
           </Routes>
         </main>

@@ -13,7 +13,7 @@ const Navbar: React.FC = () => (
             Home
           </Link>
           <Link
-            to={"/dnd"}
+            to={"/dashboard"}
             className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Companies Dashboard
@@ -35,6 +35,12 @@ const Navbar: React.FC = () => (
             className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Add Company
+          </Link>{" "}
+          <Link
+            to={"/data"}
+            className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+          >
+            Data
           </Link>
           <Link
             to="/buttons"
@@ -47,12 +53,6 @@ const Navbar: React.FC = () => (
             className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Test Page{" "}
-          </Link>
-          <Link
-            to={"/data"}
-            className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-          >
-            Data
           </Link>
         </div>
 

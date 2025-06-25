@@ -5,7 +5,7 @@ type CompCardProps = {
   company: Company4DnD;
 };
 
-export function CompanyCard4DnD({ company }: CompCardProps) {
+export function PracticeCompanyCard4DnD({ company }: CompCardProps) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: company.id,
   });
