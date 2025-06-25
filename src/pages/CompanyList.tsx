@@ -57,20 +57,23 @@ const CompaniesList: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2  flex justify-center">
+          <h1 className="uppercase font-bold text-green-500 font-chicle tracking-widest text-5xl mb-2  flex justify-center">
             Companies
           </h1>
-          <div className="flex justify-center">
-            <p className="text-orange-400">
-              Manage and view all your companies
-            </p>
-            <button
-              className="bg-green-800 hover:bg-green-500 text-white font-bold px-0.5 py-0.5 mx-2 rounded inline-flex items-center"
-              onClick={() => navigate(`/add-company`)}
-            >
-              <span className="mr-2">+</span>
-              Add Company
-            </button>
+          <div className="w-full flex justify-center">
+            <div className="flex flex-col items-center gap-2 border-2 border-green-700 bg-green-100 px-4 py-4 rounded-lg max-w-md w-full">
+              <p className="text-green-800 font-bold text-center">
+                Manage and view all your companies
+              </p>
+
+              <button
+                type="button"
+                className="bg-white hover:bg-green-200 text-green-700 font-bold px-4 py-2 rounded transition-colors duration-200"
+                onClick={() => navigate("/add-company")}
+              >
+                + Add Company
+              </button>
+            </div>
           </div>
         </div>
 
