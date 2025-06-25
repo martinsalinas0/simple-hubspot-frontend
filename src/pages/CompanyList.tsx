@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "../stores/configureStore.ts";
 import { fetchCompanies } from "../stores/slices/companySlice.ts";
 import CompanyCardForList from "../components/CompanyCardForList.tsx";
+import { useNavigate } from "react-router-dom";
 
 const CompaniesList: React.FC = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
   const { companies, isLoading, error } = useSelector(
@@ -27,7 +29,6 @@ const CompaniesList: React.FC = () => {
     );
   }
 
-  //shows UI if there is an error
   if (error) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -41,7 +42,6 @@ const CompaniesList: React.FC = () => {
     );
   }
 
-  //if there are no companies, its shows this UI
   if (!companies || companies.length === 0) {
     return (
       <div className="container mx-auto px-4 py-8">
@@ -53,13 +53,25 @@ const CompaniesList: React.FC = () => {
     );
   }
 
-  //finally, if everything works, it shows this
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Companies</h1>
-          <p className="text-gray-600">Manage and view all your companies</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2  flex justify-center">
+            Companies
+          </h1>
+          <div className="flex justify-center">
+            <p className="text-orange-400">
+              Manage and view all your companies
+            </p>
+            <button
+              className="bg-green-800 hover:bg-green-500 text-white font-bold px-0.5 py-0.5 mx-2 rounded inline-flex items-center"
+              onClick={() => navigate(`/add-company`)}
+            >
+              <span className="mr-2">+</span>
+              Add Company
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -74,7 +86,6 @@ const CompaniesList: React.FC = () => {
               createdAt={company.createdAt}
             />
           ))}
-          <button>HERE</button>
         </div>
       </div>
     </div>

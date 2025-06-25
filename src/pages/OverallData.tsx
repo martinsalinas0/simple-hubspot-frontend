@@ -1,7 +1,7 @@
-import React from "react";
-
 const OverallData = () => {
   return <div>OverallData</div>;
 };
+
+//use highcharts-react?
 
 export default OverallData;
