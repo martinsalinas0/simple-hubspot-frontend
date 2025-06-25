@@ -13,8 +13,10 @@ export function Column4DnD({ column, companies }: ColumnProps) {
   });
 
   return (
-    <div className="flex w-80 flex-col rounded-lg bg-neutral-800 p-4">
-      <h2 className="mb-4 font-semibold text-neutral-100">{column.title}</h2>
+    <div className="flex w-80 flex-col rounded-lg bg-neutral-600  p-4">
+      <h2 className="mb-4 text-xl uppercase text-center border-4 border-dotted  border-orange-200 text-neutral-100 tracking-widest ">
+        {column.title}
+      </h2>
       <div ref={setNodeRef} className="flex flex-1 flex-col gap-4">
         {companies.map((company) => (
           <CompanyCard4DnD key={company.id} company={company} />

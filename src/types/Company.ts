@@ -11,6 +11,7 @@ export interface Company {
   stage: CompanyStage;
   logo_URL: string;
   location: string;
+  point_of_contact?: string; 
 }
 
 export interface Company4DnD {
