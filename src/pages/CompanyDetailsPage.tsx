@@ -29,16 +29,20 @@ const CompanyDetailsPage: React.FC = () => {
   if (!company) return <p className="text-center mt-10">No company found.</p>;
 
   return (
-    <div className="flex  min-h-screen p-6 bg-gray-100">
-      <CompanyDetailsComp
-        name={company.name}
-        location={company.location}
-        _id={company._id}
-        status={company.status}
-        logoURL={company.logoURL}
-        createdAt={company.createdAt}
-        suf="THIS IS JUST SHOWING ME REMINDING ME HOW COMPS AND PROPS WORK"
-      />
+    <div>
+      <div className="flex  min-h-screen p-6 bg-gray-100">
+        <CompanyDetailsComp
+          name={company.name}
+          location={company.location}
+          _id={company._id}
+          status={company.status}
+          logoURL={company.logoURL}
+          createdAt={company.createdAt}
+          pointOfContact={company.pointOfContact}
+          phoneNumber={company.phoneNumber}
+          customerEmail={company.email}
+        />
+      </div>{" "}
     </div>
   );
 };

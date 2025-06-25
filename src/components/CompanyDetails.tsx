@@ -8,7 +8,9 @@ interface CompanyProps {
   status: string;
   logoURL?: string;
   createdAt?: string;
-  suf?: string;
+  pointOfContact?: string;
+  phoneNumber?: string;
+  customerEmail?: string;
 }
 
 const CompanyDetailsComp: React.FC<CompanyProps> = ({
@@ -18,18 +20,29 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
   status,
   logoURL,
   createdAt,
-  suf,
+  pointOfContact,
+  phoneNumber,
+  customerEmail,
 }) => {
   const navigate = useNavigate();
 
   const handleEditClick = () => {
     navigate(`/company/edit/${_id}`, {
-      state: { name, location, status, logoURL, createdAt },
+      state: {
+        name,
+        location,
+        status,
+        logoURL,
+        createdAt,
+        pointOfContact,
+        phoneNumber,
+        customerEmail,
+      },
     });
   };
 
-  console.log("createdAt:fff", createdAt);
-  console.log(name);
+  // console.log("createdAt:fff", createdAt);
+  // console.log(name);
 
   const deleteCompany = async () => {
     const valid = window.confirm("Are you sure you want to delete? ");
@@ -80,7 +93,7 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
 
       {/* status label */}
       <p className="mb-4 text-lg">
-        <strong className="text-gray-700">Status:</strong> {status}{" "}
+        <strong className="text-gray-700">Status:</strong> <em>{status}</em>{" "}
         <div className="relative inline-block text-left">
           <button
             id="dropdown-button"
@@ -135,9 +148,9 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
           </div>
         </div>
       </p>
-      <p>Point of Contact: fff</p>
-      <p>Phone Number: fff</p>
-      <p>Email: ff</p>
+      <p>Point of Contact: {pointOfContact}</p>
+      <p>Phone Number: {phoneNumber}</p>
+      <p>Email: {customerEmail}</p>
       <p>
         Cusomter Since:{" "}
         {createdAt ? new Date(createdAt).toLocaleString() : "N/A"}
@@ -145,19 +158,26 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
 
       <div className="flex gap-4">
         <button
-          className="text-blue-600 font-medium hover:text-blue-800"
+          className="bg-blue-500 text-white px-4 py-2  m-3 rounded hover:bg-blue-800"
           onClick={handleEditClick}
         >
           Edit
         </button>
 
         <button
-          className="text-red-700 font-bold hover:text-red-500"
+          className="bg-red-500 text-white px-4 py-2  m-3 rounded hover:bg-red-900"
           onClick={deleteCompany}
         >
           Delete
         </button>
-        <p>{suf}</p>
+        <button
+          type="button"
+          onClick={() => navigate(`/companies`)}
+          className="bg-neutral-500 text-white px-2 py-2  m-3 rounded hover:bg-neutral-800"
+        >
+          {" "}
+          Back
+        </button>
       </div>
     </div>
   );

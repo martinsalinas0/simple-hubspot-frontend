@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 
-import type { Company, CompanyColumn, CompanyStage } from "../types/types";
+import type { CompanyColumn, CompanyStage } from "../types/types";
 import { useAppDispatch } from "../hooks/hooks";
-import { fetchCompanies } from "../stores/slices/companySlice";
+import { fetchCompanies, updateComp } from "../stores/slices/companySlice";
 import { useSelector } from "react-redux";
 import type { RootState } from "../stores/configureStore";
 
@@ -29,12 +29,6 @@ export default function DnDTest() {
     (state: RootState) => state.companies
   );
 
-  const [companyList, setCompanyList] = useState<Company[]>([]);
-
-  useEffect(() => {
-    setCompanyList(companies);
-  }, [companies]);
-
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
     if (!over) return;
@@ -42,11 +36,10 @@ export default function DnDTest() {
     const companyId = active.id as string;
     const newStatus = over.id as CompanyStage;
 
-    setCompanyList((prevCompanies) =>
-      prevCompanies.map((company) =>
-        company._id === companyId ? { ...company, status: newStatus } : company
-      )
-    );
+    const movedCompany = companies.find((company) => company._id === companyId);
+    if (!movedCompany || movedCompany.status === newStatus) return;
+
+    dispatch(updateComp({ id: companyId, data: { status: newStatus } }));
   }
 
   if (isLoading) return <p>Loading...</p>;

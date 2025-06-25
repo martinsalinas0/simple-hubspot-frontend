@@ -13,6 +13,9 @@ export interface Company {
   logoURL: string;
   status: string;
   createdAt?: string;
+  pointOfContact?: string;
+  phoneNumber?: string;
+  email?: string;
 }
 
 export interface Company4DnD {

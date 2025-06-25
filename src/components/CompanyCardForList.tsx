@@ -18,7 +18,6 @@ const CompanyCardForList: React.FC<CompanyProps> = ({
   _id,
   status,
   logoURL,
-  createdAt,
 }) => {
   return (
     <div className="rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow p-6 relative">

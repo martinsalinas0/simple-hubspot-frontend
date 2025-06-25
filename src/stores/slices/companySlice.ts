@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
 //creates the company type
 interface Company {
   name: string;
@@ -10,6 +9,9 @@ interface Company {
   logoURL: string;
   status: string;
   createdAt?: string;
+  pointOfContact?: string;
+  phoneNumber?: string;
+  email?: string;
 }
 
 //this creaates  the compaanystaate
@@ -64,7 +66,7 @@ export const updateComp = createAsyncThunk(
   "companies/updateComp",
   async ({ id, data }: { id: string; data: Partial<Company> }) => {
     const response = await axios.put(`${API_URL}/company/update/${id}`, data);
-    return response.data.company;
+    return response.data.updated;
   }
 );
 

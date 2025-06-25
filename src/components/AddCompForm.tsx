@@ -61,7 +61,7 @@ const AddCompForm: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Location</label>
+            <label className="block text-sm mb-1">Location:</label>
             <input
               type="text"
               name="location"

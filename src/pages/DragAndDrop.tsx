@@ -4,56 +4,56 @@ import { Column4DnD } from "../components/Column4DnD.tsx";
 import type { Company4DnD, CompanyColumn, CompanyStage } from "../types/types";
 
 const COLUMNS: CompanyColumn[] = [
-  { id: "INITIATED", title: "Initiated" },
-  { id: "QUALIFIED", title: "Qualified" },
-  { id: "CONTRACT_SENT", title: "Contract Sent" },
-  { id: "NEGOTIATING", title: "Negotiating" },
-  { id: "CLOSED_WON", title: "Closed Won" },
-  { id: "CLOSED_LOST", title: "Closed Lost" },
+  { id: "initiated", title: "Initiated" },
+  { id: "qualified", title: "Qualified" },
+  { id: "contract sent", title: "Contract Sent" },
+  { id: "negotiating", title: "Negotiating" },
+  { id: "closed won", title: "Closed Won" },
+  { id: "closed lost", title: "Closed Lost" },
 ];
 
 const INITIAL_COMPANIES: Company4DnD[] = [
   {
     id: "1562",
-    compName: "Company 1",
+    name: "Company 1",
     location: "Austin, Texas",
-    status: "INITIATED",
+    status: "initiated",
   },
   {
     id: "262562",
-    compName: "Company 2",
+    name: "Company 2",
     location: "Dallas, Texas",
-    status: "QUALIFIED",
+    status: "qualified",
   },
   {
     id: "3264562",
-    compName: "Company 3",
+    name: "Company 3",
     location: "Miami, Florida",
-    status: "CONTRACT_SENT",
+    status: "contract sent",
   },
   {
     id: "46256",
-    compName: "Company 4",
+    name: "Company 4",
     location: "New York City",
-    status: "NEGOTIATING",
+    status: "negotiating",
   },
   {
     id: "52546",
-    compName: "Company 5",
+    name: "Company 5",
     location: "Texas",
-    status: "CLOSED_WON",
+    status: "closed won",
   },
   {
     id: "6526",
-    compName: "Company 6",
+    name: "Company 6",
     location: "LONDON",
-    status: "CLOSED_LOST",
+    status: "closed lost",
   },
   {
     id: "65426gafsd26",
-    compName: "Company 7",
+    name: "Company 7",
     location: "GERMANY",
-    status: "CLOSED_WON",
+    status: "closed won",
   },
 ];
 
