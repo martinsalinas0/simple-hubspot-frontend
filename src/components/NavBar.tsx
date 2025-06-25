@@ -48,6 +48,12 @@ const Navbar: React.FC = () => (
           >
             Test Page{" "}
           </Link>
+          <Link
+            to={"/data"}
+            className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+          >
+            Data
+          </Link>
         </div>
 
         {/* Right side user info */}
