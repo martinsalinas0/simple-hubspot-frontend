@@ -25,6 +25,7 @@ const EditCompany = () => {
   const [pointOfContact, setPointOfContact] = useState<string>("");
   const [customerEmail, setCustomerEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [dealAmount, setDealAmount] = useState<number>(0);
 
   const [oldCompName, setOldCompName] = useState<string>("");
   const [oldLocation, setOldLocation] = useState<string>("");
@@ -33,6 +34,7 @@ const EditCompany = () => {
   const [oldPointOfContact, setOldPointOfContact] = useState<string>("");
   const [oldCustomerEmail, setOldCustomerEmail] = useState<string>("");
   const [oldPhoneNumber, setOldPhoneNumber] = useState<string>("");
+  const [oldDealAmount, setOldDealAmount] = useState<number>(0);
 
   useEffect(() => {
     const fetchCompany = async () => {
@@ -48,6 +50,7 @@ const EditCompany = () => {
         setPointOfContact(data.pointOfContact);
         setCustomerEmail(data.email);
         setPhoneNumber(data.phoneNumber);
+        setDealAmount(data.dealAmount);
 
         setOldCompName(data.name);
         setOldLocation(data.location);
@@ -56,6 +59,7 @@ const EditCompany = () => {
         setOldPointOfContact(data.pointOfContact);
         setOldCustomerEmail(data.email);
         setOldPhoneNumber(data.phoneNumber);
+        setOldDealAmount(data.dealAmount);
       } catch (err) {
         console.error("Failed to fetch company:", err);
       }
@@ -89,6 +93,7 @@ const EditCompany = () => {
             pointOfContact,
             phoneNumber,
             email: customerEmail,
+            dealAmount: dealAmount,
           },
         })
       ).unwrap();
@@ -140,6 +145,9 @@ const EditCompany = () => {
           <strong>Phone Number:</strong> {oldPhoneNumber}
         </p>
         <p>
+          <strong>Deal Amount: </strong> {oldDealAmount}
+        </p>
+        <p>
           <strong>Logo:</strong>{" "}
           <a href={logoURL} target="_blank">
             {oldLogoURL}
@@ -165,7 +173,7 @@ const EditCompany = () => {
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            className="w-full border p-2 text-blue-500"
+            className="w-full border p-2 "
             placeholder={location}
             required
           />
@@ -176,7 +184,7 @@ const EditCompany = () => {
             type="text"
             value={pointOfContact}
             onChange={(e) => setPointOfContact(e.target.value)}
-            className="w-full border p-2 text-blue-500"
+            className="w-full border p-2 "
             placeholder={pointOfContact}
             required
           />
@@ -187,7 +195,7 @@ const EditCompany = () => {
             type="email"
             value={customerEmail}
             onChange={(e) => setCustomerEmail(e.target.value)}
-            className="w-full border p-2 text-blue-500"
+            className="w-full border p-2 "
             placeholder={customerEmail}
             required
           />{" "}
@@ -220,6 +228,17 @@ const EditCompany = () => {
             onChange={(e) => setLogoURL(e.target.value)}
             className="w-full border p-2"
             placeholder="if no URL, leave blank"
+          />
+        </label>
+        <label>
+          Deal Amount $(USD)
+          <input
+            type="number"
+            value={dealAmount}
+            onChange={(e) => setDealAmount(parseFloat(e.target.value))}
+            className="w-full border p-2"
+            placeholder={String(dealAmount)}
+            required
           />
         </label>
         <button
