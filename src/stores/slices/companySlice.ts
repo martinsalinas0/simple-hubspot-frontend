@@ -37,7 +37,7 @@ export const getCompanies = createAsyncThunk(
 // Add a new company
 export const addCompany = createAsyncThunk(
   "companies/addCompany",
-  async (companyData: Omit<Company, "_id">) => {
+  async (companyData: Omit<Company, "_id" | "createdAt">) => {
     const response = await axios.post(`${API_URL}/company/new`, companyData);
 
     return response.data.company;

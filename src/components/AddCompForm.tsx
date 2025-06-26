@@ -1,85 +1,149 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCompany } from "../stores/slices/companySlice";
+import { addCompany, clearError } from "../stores/slices/companySlice";
 import type { AppDispatch, RootState } from "../stores/configureStore";
+import { useNavigate } from "react-router-dom";
 
 const AddCompForm: React.FC = () => {
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
-  const [logoURL, setLogoURL] = useState("");
-
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
-  const isLoading = useSelector(
-    (state: RootState) => state.companies.isLoading
+  const { isLoading, error } = useSelector(
+    (state: RootState) => state.companies
   );
-  const error = useSelector((state: RootState) => state.companies.error);
+
+  const [name, setName] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [logoURL, setLogoURL] = useState<string>("");
+  const [pointOfContact, setPointOfContact] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [dealAmount, setDealAmount] = useState<number>(0);
+  const [status] = useState<string>("initiated");
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearError());
+    };
+  }, [dispatch]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name || !location || !logoURL) {
-      alert("Please fill in all fields.");
-      return;
-    }
-
     try {
-      await dispatch(
+      const result = await dispatch(
         addCompany({
           name,
           location,
-          logoURL,
-          status: "initiated",
+          logoURL: logoURL || "",
+          pointOfContact,
+          email,
+          phoneNumber,
+          dealAmount,
+          status,
         })
       ).unwrap();
-
-      setName("");
-      setLocation("");
-      setLogoURL("");
-      alert("Company added!");
+      navigate(`/company/${result._id}`);
     } catch (err) {
       console.error("Failed to add company:", err);
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen mt-9">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4 text-center">Add Company</h2>
+    <div className="max-w-4xl mx-auto mt-10 p-6">
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-bold mb-6 text-gray-600">Add Company</h2>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm mb-1">Company Name</label>
+            <label className="block text-sm font-medium mb-2">
+              Company Name
+            </label>
             <input
               type="text"
-              name="name"
+              name="Company Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              placeholder="name"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="Company Name"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Location:</label>
+            <label className="block text-sm font-medium mb-2-medium mb-2">
+              Deal Amount: (USD)
+            </label>
+            <input
+              type="number"
+              name="dealAmount"
+              value={dealAmount}
+              onChange={(e) => setDealAmount(parseFloat(e.target.value))}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="$0.00 USD"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">Location:</label>
             <input
               type="text"
               name="location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="City and state"
             />
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Company Logo URL</label>
+            <label className="block text-sm font-medium mb-2">
+              Point of Contact:
+            </label>
             <input
               type="text"
+              name="point of contact"
+              value={pointOfContact}
+              onChange={(e) => setPointOfContact(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="First and Last Name"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              Phone Number:
+            </label>
+            <input
+              type="tel"
+              name="phone number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="000-000-0000"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="email@email.com"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              Company Logo URL
+            </label>
+            <input
+              type="url"
               name="logoURL"
               value={logoURL}
               onChange={(e) => setLogoURL(e.target.value)}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="if no url, leave blank"
             />
             <p className="text-red-600">*all fields required</p>

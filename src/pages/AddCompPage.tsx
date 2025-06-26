@@ -3,7 +3,7 @@ import AddCompForm from "../components/AddCompForm";
 
 const AddCompPage: React.FC = () => {
   return (
-    <div>
+    <div className="mt-8">
       <AddCompForm />
     </div>
   );
