@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => (
-  <div>
-    <nav className="bg-orange-400 shadow-2xl bg-opacity-25 px-6 py-4">
+  <div className="">
+    <nav className="min-w-auto bg-darkblue shadow-2xl px-6 py-4">
       <div className="flex justify-between items-center">
         <div className="flex space-x-6">
           <Link
             to="/"
-            className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            className="text-offwhite hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Home
           </Link>

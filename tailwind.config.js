@@ -10,6 +10,12 @@ export default {
         sans: ['Oswald', 'sans-serif'], 
         chicle: ['Chicle', 'sans-serif'],
       },
+      colors: { 
+        darkblue: "#213448", 
+        mediumblue: "#547792", 
+        lightblue: "#94B4C1",
+        offwhite: "#ECEFCA"
+      }
     },
   },
   plugins: [],
