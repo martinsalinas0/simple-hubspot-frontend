@@ -1,38 +1,32 @@
-import React, { useRef } from "react";
-import * as Highcharts from "highcharts";
-import { HighchartsReact } from "highcharts-react-official";
+import ChartForDashboard from "../components/dashboard/Charts";
+import TableforDasboard from "../components/TableForDashboard";
 
-// The integration exports only a default component that at the same time is a
-// namespace for the related Props interface (HighchartsReact.Props) and
-// RefObject interface (HighchartsReact.RefObject). All other interfaces
-// like Options come from the Highcharts module itself.
-
-const options: Highcharts.Options = {
-  title: {
-    text: "My chart",
-  },
-  series: [
-    {
-      type: "line",
-      data: [1, 2, 3, 6, 7, 8, 23, 54, 421, 565, 65, 2, 1],
-    },
-  ],
-};
-
-const OverallData = (props: HighchartsReact.Props) => {
-  const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
-
+const Dashboard = () => {
   return (
-    <div className="min-h-3 min-w-4 ">
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={options}
-        ref={chartComponentRef}
-        {...props}
-      />
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Dashboard</h1>
+          <p className="text-gray-600">
+            Monitor your sales activity and performance
+          </p>
+        </div>
+
+        {/* Table Section */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-">
+          <TableforDasboard />
+          <div className="bg-blue-50 border border-blue-400  rounded">
+            <p className="text-sm text-blue-700 font-medium p-2">
+              <span className="font-semibold">Note:</span> This table is
+              read-only
+            </p>
+          </div>
+        </div>
+        <ChartForDashboard />
+      </div>
     </div>
   );
 };
-// Render your App component into the #root element of the document.
 
-export default OverallData;
+export default Dashboard;
