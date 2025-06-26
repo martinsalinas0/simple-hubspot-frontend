@@ -94,7 +94,7 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
           Deal Amount: <span className="font-serif">$</span>
         </strong>
         {dealAmount}
-        .00
+        .00 <p>Current Deal:</p>
       </p>
       <hr className="my-3" />
 

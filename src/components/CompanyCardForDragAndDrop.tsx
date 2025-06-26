@@ -26,6 +26,13 @@ export function CompanyCard4DnD({ company }: CompCardProps) {
     >
       <h3 className="font-medium text-neutral-100">{company.name}</h3>
       <p className="mt-2 text-sm text-neutral-400">{company.location}</p>
+      <p>{company.dealAmount}</p>
+      <p>
+        {company.createdAt
+          ? new Date(company.createdAt).toLocaleString()
+          : "n/a"}
+      </p>
+      <p>Close Date</p>
     </div>
   );
 }
