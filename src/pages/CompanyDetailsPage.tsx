@@ -41,6 +41,7 @@ const CompanyDetailsPage: React.FC = () => {
           pointOfContact={company.pointOfContact}
           phoneNumber={company.phoneNumber}
           customerEmail={company.email}
+          dealAmount={company.dealAmount}
         />
       </div>{" "}
     </div>

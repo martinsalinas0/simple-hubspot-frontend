@@ -16,6 +16,7 @@ export interface Company {
   pointOfContact?: string;
   phoneNumber?: string;
   email?: string;
+  dealAmount?: number;
 }
 
 export interface Company4DnD {

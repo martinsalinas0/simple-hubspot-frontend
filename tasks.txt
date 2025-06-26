@@ -1,0 +1,15 @@
+-change compnaines(list) to Current Companies
+-changte comp dahsboard to cuurent deals
+
+-add associated deals to deltails page
+
+Deals
+-Show all deals in stages like "initiated", "qualified", "contract sent", "closed won", and "closed lost".
+-Deals should include attributes like name, associated company, stage, create date, close date, and amount.
+-Implement drag-and-drop functionality to move deals between different stages.
+-Allow creation of new deals through a user-friendly interface.
+
+
+Dashboard
+Develop a dashboard with at least one graph displaying useful deal data. This could include metrics like the average time for deal closure, win/loss ratios, etc.
+Showcase key information like the number of current deals and their statuses.

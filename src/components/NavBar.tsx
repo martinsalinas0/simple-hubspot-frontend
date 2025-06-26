@@ -16,19 +16,19 @@ const Navbar: React.FC = () => (
             to={"/dashboard"}
             className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
-            Companies Dashboard
+            Dashboard
           </Link>
           <Link
-            to="/companies"
+            to="/active-companies"
             className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
-            Companies (list)
+            Current Companies
           </Link>
           <Link
-            to="/single"
+            to="/deals"
             className="text-orange-400 hover:text-orange-800 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
-            Single
+            Deals
           </Link>
           <Link
             to="/add-company"

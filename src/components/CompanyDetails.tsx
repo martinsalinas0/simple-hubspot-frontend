@@ -11,6 +11,7 @@ interface CompanyProps {
   pointOfContact?: string;
   phoneNumber?: string;
   customerEmail?: string;
+  dealAmount?: number;
 }
 
 const CompanyDetailsComp: React.FC<CompanyProps> = ({
@@ -23,6 +24,7 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
   pointOfContact,
   phoneNumber,
   customerEmail,
+  dealAmount,
 }) => {
   const navigate = useNavigate();
 
@@ -37,6 +39,7 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
         pointOfContact,
         phoneNumber,
         customerEmail,
+        dealAmount,
       },
     });
   };
@@ -87,6 +90,15 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
       <hr className="my-3" />
 
       <p className="mb-2 text-lg">
+        <strong className="text-gray-700 ">
+          Deal Amount: <span className="font-serif">$</span>
+        </strong>
+        {dealAmount}
+        .00
+      </p>
+      <hr className="my-3" />
+
+      <p className="mb-2 text-lg">
         <strong className="text-gray-700">ID:</strong> {_id}
       </p>
       <hr className="my-3" />
@@ -113,39 +125,6 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
               />
             </svg>
           </button>
-
-          <div
-            id="dropdown-menu"
-            className="absolute right-0 z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
-          >
-            <div className="py-1">
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Account settings
-              </a>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Support
-              </a>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                License
-              </a>
-              <hr className="my-1" />
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Sign out
-              </a>
-            </div>
-          </div>
         </div>
       </p>
       <p>Point of Contact: {pointOfContact}</p>
