@@ -92,7 +92,10 @@ const CompaniesList: React.FC = () => {
               status={company.status}
               logoURL={company.logoURL}
               createdAt={company.createdAt}
-              
+              dealAmount={company.dealAmount}
+              pointOfContact={company.pointOfContact}
+              phoneNumber={company.phoneNumber}
+              email={company.email}
             />
           ))}
         </div>
