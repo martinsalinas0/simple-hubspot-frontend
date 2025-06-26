@@ -18,7 +18,7 @@ const HomePage = () => {
               </div>
               <p className="text-gray-700 text-base">
                 <Link
-                  to="/companies"
+                  to="/active-companies"
                   className="text-gray-800 font-bold underline m-9"
                 >
                   View all companies here...
