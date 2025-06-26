@@ -4,7 +4,7 @@ import HighchartsReact from "highcharts-react-official";
 
 interface Company {
   name: string;
-  dealAmount: number;
+  createdAt: string;
 }
 
 interface DateCreatedChartProps {
@@ -12,28 +12,46 @@ interface DateCreatedChartProps {
 }
 
 const DateCreatedChart: React.FC<DateCreatedChartProps> = ({ companies }) => {
+  const countsByMonth: Record<string, number> = {};
+
+  companies.forEach(({ createdAt }) => {
+    const date = new Date(createdAt);
+    const monthYear = date.toLocaleString("default", {
+      month: "short",
+      year: "numeric",
+    });
+    countsByMonth[monthYear] = (countsByMonth[monthYear] ?? 0) + 1;
+  });
+
+  const sortedMonths = Object.keys(countsByMonth).sort((a, b) => {
+    return new Date(a).getTime() - new Date(b).getTime();
+  });
+
+  const data = sortedMonths.map((month) => countsByMonth[month]);
+
   const chartOptions: Highcharts.Options = {
     chart: {
-      type: "line",
+      type: "column",
     },
     title: {
-      text: "Company Deal Amounts",
+      text: "Companies Created Per Month",
     },
     xAxis: {
-      categories: companies.map((company) => company.name),
-      title: { text: "Companies" },
+      categories: sortedMonths,
+      title: { text: "Month" },
     },
     yAxis: {
       title: {
-        text: "Deal Amount (USD)",
+        text: "Number of Companies",
       },
+      allowDecimals: false,
     },
     series: [
       {
-        name: "Deal Amount",
-        type: "line",
-        data: companies.map((company) => company.createdAt),
-        color: "green",
+        name: "Companies Created",
+        type: "column",
+        data,
+        color: "blue",
       },
     ],
   };

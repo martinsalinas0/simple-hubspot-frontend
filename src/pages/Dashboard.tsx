@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
-import ChartForDashboard from "../components/dashboard/DealAmountChart";
+
 import TableforDasboard from "../components/TableForDashboard";
 import type { RootState } from "../stores/configureStore";
+import DealAmountChart from "../components/dashboard/DealAmountChart";
+import DateCreatedChart from "../components/dashboard/DateCreatedChart";
 
 const Dashboard = () => {
   const { companies, count } = useSelector(
@@ -20,16 +22,19 @@ const Dashboard = () => {
             <h3>Key Data</h3>
             <p>Total Deals: {count}</p>
             <p>
-              Total Amount: $
-              {companies.reduce((sum, company) => {
-                return sum + company.dealAmount;
-              }, 0)}
+              Total Amount:{" "}
+              {companies
+                .reduce((sum, company) => sum + company.dealAmount, 0)
+                .toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
             </p>
           </div>
         </div>
 
         {/* Table Section */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-2">
           <TableforDasboard />
           <div className="bg-blue-50 border border-blue-400  rounded">
             <p className="text-sm text-blue-700 font-medium p-2">
@@ -38,7 +43,8 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <ChartForDashboard companies={companies} />
+        <DealAmountChart companies={companies} />
+        <DateCreatedChart companies={companies} />
       </div>
     </div>
   );

@@ -12,11 +12,11 @@ export interface Company {
   location: string;
   logoURL: string;
   status: string;
-  createdAt?: string;
-  pointOfContact?: string;
-  phoneNumber?: string;
-  email?: string;
-  dealAmount?: number;
+  createdAt: string;
+  pointOfContact: string;
+  phoneNumber: string;
+  email: string;
+  dealAmount: number;
 }
 
 export interface Company4DnD {
