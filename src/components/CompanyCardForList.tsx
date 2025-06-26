@@ -26,9 +26,8 @@ const CompanyCardForList: React.FC<CompanyProps> = ({
           <h2 className="text-xl font-semibold text-gray-800 mb-1">{name}</h2>
           <p className="text-sm text-gray-500">ID: {_id}</p>
         </div>
-
         <img
-          src={logoURL}
+          src={logoURL || "none"}
           alt={`${name} logo`}
           className="w-12 h-12 object-contain rounded bg-gray-100 p-1"
         />

@@ -9,7 +9,7 @@ const CompaniesList: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { companies, isLoading, error } = useSelector(
+  const { companies, isLoading, error, count } = useSelector(
     (state: RootState) => state.companies
   );
 
@@ -53,6 +53,10 @@ const CompaniesList: React.FC = () => {
     );
   }
 
+  console.log(count);
+  // console.log(companies);
+  // console.log(companies.length);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
@@ -73,6 +77,7 @@ const CompaniesList: React.FC = () => {
               >
                 + Add Company
               </button>
+              <p>Number of Current Companies: {count}</p>
             </div>
           </div>
         </div>

@@ -15,12 +15,13 @@ interface Company {
   dealAmount: number;
 }
 
-//this creaates  the compaanystaate
+//this creaates  the companystaate
 interface CompaniesState {
   companies: Company[];
   currentCompany: Company | null;
   isLoading: boolean;
   error: string | null;
+  count: number;
 }
 
 //sets the initial state
@@ -29,6 +30,7 @@ const initialState: CompaniesState = {
   currentCompany: null,
   isLoading: false,
   error: null,
+  count: 0,
 };
 
 //api URL
@@ -109,6 +111,7 @@ const companiesSlice = createSlice({
       .addCase(getCompanies.fulfilled, (state, action) => {
         state.isLoading = false;
         state.companies = action.payload;
+        state.count = action.payload.length;
       })
       .addCase(getCompanies.rejected, (state, action) => {
         state.isLoading = false;
