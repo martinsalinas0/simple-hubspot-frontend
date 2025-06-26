@@ -151,7 +151,7 @@ const CompanyDetailsComp: React.FC<CompanyProps> = ({
         </button>
         <button
           type="button"
-          onClick={() => navigate(`/companies`)}
+          onClick={() => navigate(`/active-companies`)}
           className="bg-neutral-500 text-white px-2 py-2  m-3 rounded hover:bg-neutral-800"
         >
           {" "}
