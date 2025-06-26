@@ -1,7 +1,12 @@
-import ChartForDashboard from "../components/dashboard/Charts";
+import { useSelector } from "react-redux";
+import ChartForDashboard from "../components/dashboard/DealAmountChart";
 import TableforDasboard from "../components/TableForDashboard";
+import type { RootState } from "../stores/configureStore";
 
 const Dashboard = () => {
+  const { companies, count } = useSelector(
+    (state: RootState) => state.companies
+  );
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
@@ -11,6 +16,16 @@ const Dashboard = () => {
           <p className="text-gray-600">
             Monitor your sales activity and performance
           </p>
+          <div>
+            <h3>Key Data</h3>
+            <p>Total Deals: {count}</p>
+            <p>
+              Total Amount: $
+              {companies.reduce((sum, company) => {
+                return sum + company.dealAmount;
+              }, 0)}
+            </p>
+          </div>
         </div>
 
         {/* Table Section */}
@@ -23,7 +38,7 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <ChartForDashboard />
+        <ChartForDashboard companies={companies} />
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ const CompaniesList: React.FC = () => {
     );
   }
 
-  console.log(count);
+  //console.log(count);
   // console.log(companies);
   // console.log(companies.length);
 
@@ -92,6 +92,7 @@ const CompaniesList: React.FC = () => {
               status={company.status}
               logoURL={company.logoURL}
               createdAt={company.createdAt}
+              
             />
           ))}
         </div>

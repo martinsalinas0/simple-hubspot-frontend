@@ -1,19 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import type { Company } from "../../types/types";
 
 //creates the company type
-interface Company {
-  name: string;
-  _id: string;
-  location: string;
-  logoURL: string;
-  status: string;
-  createdAt?: string;
-  pointOfContact?: string;
-  phoneNumber?: string;
-  email?: string;
-  dealAmount: number;
-}
 
 //this creaates  the companystaate
 interface CompaniesState {
